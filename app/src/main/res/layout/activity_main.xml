@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            app:titleTextColor="@color/white"
+            android:background="?attr/colorPrimary"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/promptLayout"
+            android:hint="Prompt"
+            android:layout_marginBottom="24sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            app:boxStrokeWidth="0sp"
+            app:boxStrokeWidthFocused="0sp"
+            app:boxCornerRadiusBottomEnd="20sp"
+            app:boxCornerRadiusBottomStart="20sp"
+            app:boxCornerRadiusTopEnd="20sp"
+            app:boxCornerRadiusTopStart="20sp"
+            app:startIconDrawable="@drawable/baseline_auto_awesome_24"
+            app:startIconTint="?attr/colorPrimary"
+            app:counterEnabled="true"
+            app:counterMaxLength="600"
+            style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top|start"
+                android:id="@+id/promptET"
+                android:inputType="textMultiLine|textCapSentences"
+                android:maxLines="8"
+                android:minLines="4"
+                android:maxLength="500"
+                android:textAppearance="?attr/textAppearanceBodyLarge"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32sp"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            app:cardElevation="4sp"
+            app:strokeWidth="0sp"
+            app:cardCornerRadius="24sp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24sp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Settings"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                    android:textColor="?attr/colorOnSurface"
+                    android:layout_marginBottom="20sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:boxCornerRadiusBottomStart="16sp"
+                    app:boxCornerRadiusTopStart="16sp"
+                    app:boxCornerRadiusTopEnd="16sp"
+                    app:boxCornerRadiusBottomEnd="16sp"
+                    app:boxStrokeWidth="0sp"
+                    app:boxStrokeWidthFocused="0sp"
+                    android:hint="AI Model"
+                    style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu">
+
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/modelDropDown"
+                        android:inputType="none"
+                        android:focusable="false"
+                        android:textAppearance="?attr/textAppearanceBodyLarge"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4sp"
+                    app:boxCornerRadiusBottomStart="16sp"
+                    app:boxCornerRadiusTopStart="16sp"
+                    app:boxCornerRadiusTopEnd="16sp"
+                    app:boxCornerRadiusBottomEnd="16sp"
+                    app:boxStrokeWidth="0sp"
+                    app:boxStrokeWidthFocused="0sp"
+                    android:hint="Image Dimensions"
+                    style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu">
+
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sizeDropDown"
+                        android:inputType="none"
+                        android:focusable="false"
+                        android:textAppearance="?attr/textAppearanceBodyLarge"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="64sp"
+            android:text="Generate"
+            android:textAppearance="?attr/textAppearanceLabelLarge"
+            android:textSize="18sp"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            app:icon="@drawable/baseline_auto_awesome_24"
+            app:iconSize="28sp"
+            app:iconGravity="textStart"
+            app:elevation="6sp"
+            android:id="@+id/generateBtn"
+            android:layout_marginBottom="24sp"/>
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:visibility="gone"
+            android:layout_marginBottom="20sp"
+            android:indeterminate="true"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            app:trackThickness="6sp"
+            app:trackCornerRadius="12sp"
+            app:indicatorColor="?attr/colorPrimary"
+            app:trackColor="?attr/colorSurfaceVariant" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/statusTV"
+            android:gravity="center"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:layout_marginBottom="20sp"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            android:minHeight="24sp"
+            android:text="Image generated successfully!" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageCard"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            app:cardElevation="12sp"
+            app:cardCornerRadius="28sp"
+            app:strokeWidth="0sp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Generated Image"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                    android:textColor="?attr/colorOnSurface"
+                    android:gravity="center"
+                    android:padding="16sp"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="320sp"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/resultImageView"
+                    android:src="@drawable/outline_crop_original_24"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="32sp"/>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
